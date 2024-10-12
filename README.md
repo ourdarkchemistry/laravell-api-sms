@@ -176,6 +176,7 @@ You can also use `->params(["param1" => "val"])` to add extra parameters to the 
 
 ### Getting Response
 You can get response by using `->response()` or get the Response Code using `->getResponseCode()`. For example, `smsapi()->sendMessage("TO","MESSAGE")->response();`
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
