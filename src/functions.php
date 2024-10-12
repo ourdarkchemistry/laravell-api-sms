@@ -3,16 +3,8 @@
 /*
  * Add helper function
  */
-
 if (!function_exists('smsapi')) {
 
-    /**
-     * @param string $to
-     * @param string $message
-     * @param array $extra_params
-     * @param array $headers
-     * @return mixed
-     */
     function smsapi($to = null, $message = null, $extra_params = null, $headers = [])
     {
         $smsapi = app('smsapi');
