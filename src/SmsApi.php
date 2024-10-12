@@ -29,11 +29,6 @@ class SmsApi
         $this->createClient();
     }
 
-    /**
-     * Create new Guzzle Client
-     *
-     * @return $this
-     */
     protected function createClient()
     {
         if (!self::$client) {
@@ -42,53 +37,24 @@ class SmsApi
         return $this;
     }
 
-    /**
-     * Set custom gateway
-     *
-     * @param string $gateway
-     * @return $this
-     */
     public function gateway($gateway = '')
     {
         $this->gateway = $gateway;
         return $this;
     }
 
-    /**
-     * Set custom country code
-     *
-     * @param string $country_code
-     * @return $this
-     */
     public function countryCode($country_code = '')
     {
         $this->country_code = $country_code;
         return $this;
     }
 
-    /**
-     * Adds wrapper Variables
-     *
-     * @param array $wrapperVars
-     * @return $this
-     */
-    //Addition
     public function addWrapperParams($wrapperParams)
     {
         $this->wrapperParams = $wrapperParams;
         return $this;
     }
 
-    /**
-     * Send message
-     *
-     * @param $to
-     * @param $message
-     * @param array $extra_params
-     * @param array $extra_headers
-     * @return $this
-     * @throws InvalidMethodException
-     */
     public function sendMessage($to, $message, $extra_params = null, $extra_headers = [])
     {
         if ($this->gateway == '') {
@@ -110,7 +76,6 @@ class SmsApi
             //Transform to Array if JSON true
             if (!is_array($mobile)){
                 $mobile = (isset($this->config['jsonToArray']) ? $this->config['jsonToArray'] : true) ? array($mobile) : $mobile;
-                // $mobile = array($mobile);
             }
         }
 
@@ -205,11 +170,6 @@ class SmsApi
         return $this;
     }
 
-    /**
-     * Load Default Gateway
-     *
-     * @return $this
-     */
     private function loadDefaultGateway()
     {
         $default_acc = config('sms-api.default', null);
@@ -219,11 +179,6 @@ class SmsApi
         return $this;
     }
 
-    /**
-     * Load Credentials from the selected Gateway
-     *
-     * @return $this
-     */
     protected function loadCredentialsFromConfig()
     {
         $gateway = $this->gateway;
@@ -232,12 +187,7 @@ class SmsApi
         return $this;
     }
 
-    /**
-     * Add country code to mobile
-     *
-     * @param $mobile
-     * @return array|string
-     */
+
     private function addCountryCode($mobile)
     {
         if (!$this->country_code) {
@@ -252,42 +202,18 @@ class SmsApi
         return $this->country_code . $mobile;
     }
 
-    /**
-     * For multiple mobiles
-     *
-     * @param $mobile
-     * @return string
-     */
     private function composeBulkMobile($mobile)
     {
         return implode(',', $mobile);
     }
-
-    /**
-     * Get Client
-     *
-     * @return GuzzleHttp\Client
-     */
     public function getClient()
     {
         return self::$client;
     }
-
-    /**
-     * Return Response
-     *
-     * @return string
-     */
     public function response()
     {
         return $this->response;
     }
-
-    /**
-     * Return Response Code
-     *
-     * @return string
-     */
     public function getResponseCode()
     {
         return $this->responseCode;
