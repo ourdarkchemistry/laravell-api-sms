@@ -16,7 +16,7 @@ Once the package is added, the service provider and facade will be autodiscovere
 #### For Older versions of Laravel
 Add the ServiceProvider to the providers array in `config/app.php`:
 ```
-Gr8Shivam\SmsApi\SmsApiServiceProvider::class,
+SmsApi\SmsApiServiceProvider::class,
 ```
 
 Add the Facade to the aliases array in `config/app.php`:
@@ -27,7 +27,7 @@ Add the Facade to the aliases array in `config/app.php`:
 ### Publish Config
 Once done, publish the config to your config folder using:
 ```
-php artisan vendor:publish --provider="Gr8Shivam\SmsApi\SmsApiServiceProvider"
+php artisan vendor:publish --provider=SmsApi\SmsApiServiceProvider"
 ```
 
 ## Configuration
@@ -60,10 +60,7 @@ Use can define multiple gateway configs like this:-
             'header2' => '',
             //More headers can be added
         ],
-//        'json' => true, // OPTIONAL: Use if you want the params to be sent in JSON format instead of query params (accepts true/false)
-//        'wrapper' => 'wrapper_name', // OPTIONAL: Use only if you want the JSON request to be wrapped (accepts string)
-        'add_code' => true, //Include Country Code (true/false)
-    ],
+//        'json' => true
 ```
 
 #### Special Parameters in Gateway Config
@@ -157,8 +154,8 @@ Notification example:-
 ```
 namespace App\Notifications;
 
-use Gr8Shivam\SmsApi\Notifications\SmsApiChannel;
-use Gr8Shivam\SmsApi\Notifications\SmsApiMessage;
+use SmsApi\Notifications\SmsApiChannel;
+use SmsApi\Notifications\SmsApiMessage;
 use Illuminate\Notifications\Notification;
 
 class ExampleNotification extends Notification
