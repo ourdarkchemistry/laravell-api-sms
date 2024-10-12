@@ -53,16 +53,9 @@ Use the `smsapi()` helper function or `SmsApi` facade to send the messages.
 
 `MESSAGE`: Message to be sent
 
-### Use in Notifications
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-#### Setting up the Route for Notofication
-Add the method `routeNotificationForSmsApi()` to your Notifiable model :
-
-### Getting Response
-You can get response by using `->response()` or get the Response Code using `->getResponseCode()`. For example, `smsapi()->sendMessage("TO","MESSAGE")->response();`
-
-## Support
-Feel free to post your issues in the issues section.
-
-## License
-MIT
+Contact
+Email: ourdarkchemistry@gmail.com
+GitHub: https://github.com/ourdarkchemistry
