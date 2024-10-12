@@ -10,11 +10,6 @@ class SmsApiServiceProvider extends ServiceProvider
     protected $defer = false;
     protected $configName = 'sms-api';
 
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         $configPath = __DIR__ . '/config/' . $this->configName . '.php';
@@ -23,11 +18,7 @@ class SmsApiServiceProvider extends ServiceProvider
         ], 'config');
     }
 
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
+ 
     public function register()
     {
         $configPath = __DIR__ . '/config/' . $this->configName . '.php';
