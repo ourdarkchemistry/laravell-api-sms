@@ -2,9 +2,8 @@
 
 return [
 
-    'country_code' => '91', //Country code to be added
-    'default' => env('SMS_API_DEFAULT_GATEWAY', 'gateway_name_basic'), //Choose default gateway
-    
+    'country_code' => '7',
+    'default' => env('SMS_API_DEFAULT_GATEWAY', 'gateway_name_basic'),
 //    Basic Gateway Sample Configuration
     'gateway_name_basic' => [
         'method' => 'GET', //Choose Request Method (GET/POST) Default:GET
@@ -38,7 +37,6 @@ return [
                 'param1' => '',
                 'param2' => '',
                 'param3' => '',
-                //More params can be added
             ],
         ],
         'headers' => [
@@ -46,25 +44,9 @@ return [
             'header2' => '',
             //More headers can be added
         ],
-        'json' => true, // OPTIONAL: Use if you want the params to be sent in JSON format instead of query params (accepts true/false)
-//        'jsonToArray' => false, // OPTIONAL, use only if you want "to" param as text instead of array in JSON payload.
-
-//        'wrapper' => 'wrapper_name', // OPTIONAL: Use only if you want the JSON request to be wrapped (accepts wrapper name)
-//        'wrapperParams' => [
-//            'wrapperParam1' => '', //Wrapper Param
-//        ],
-        /** Learn more about wrapper here: https://github.com/gr8shivam/laravel-sms-api#wrapper-parameter **/
-
+        'json' => true,
         'add_code' => true, //Include Country Code (true/false)
     ],
-    
-    
-    /*
-    *
-    * Examples :- 
-    *
-    */
-
 //    SMSNIX Sample Config
     'smsnix' => [
         'url' => 'http://bulk.smsnix.in/vendorsms/pushsms.aspx?',
@@ -93,7 +75,7 @@ return [
                 'authkey' => '', //Your auth key
                 'sender' => '', //Your Sender ID
                 'route' => '4',
-                'country' => '91',
+                'country' => '7',
             ],
         ],
         'json' => true, // Use if you want the params to be sent in JSON format instead of query params
